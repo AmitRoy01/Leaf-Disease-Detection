@@ -1,0 +1,281 @@
+{% extends 'base.html' %}
+{% block pagetitle %}
+🍀Agri_Family🍀
+{% endblock pagetitle %}
+{% block body %}
+<style>
+  body{
+    overflow-x: hidden;
+    background-color: #f7f3eb; /* Light earthy background */
+  }
+  @media only screen and (max-width: 830px) {
+    .laptop{
+      display: none;
+    }
+  }
+  @media (min-width:830px) and (max-width: 1536px){
+    .mobile{
+      display: none;
+    }
+  }
+</style>
+
+
+<div class="row mb-5 text-center text-white laptop">
+    <div class="col-lg-10 mx-auto">
+        <h1 class="display-4" style="padding-top: 2%;font-weight: 400;color: #8B4513;">
+            <div class="falling-leaves">
+                <div class="leaf"></div>
+                <div class="leaf"></div>
+                <div class="leaf"></div>
+                <div class="leaf"></div>
+                <div class="leaf"></div>
+                <div class="leaf"></div>
+                <div class="leaf"></div>
+                <div class="leaf"></div>
+            </div>
+            <b>🍀Agri_Family🍀</b><br>
+            <b>🌾Leaf Disease Detection & Cure🌾</b>
+            <style>
+                .falling-leaves {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+                }
+                .leaf {
+                    position: absolute;
+                    width: 20px;
+                    height: 20px;
+                    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%238B4513" d="M12,3c0,0-6.186,5.34-6.186,11.51c0,3.699,2.486,6.59,6.186,6.59s6.186-2.891,6.186-6.59C18.186,8.34,12,3,12,3z"/></svg>') no-repeat;
+                    animation: falling 5s infinite linear;
+                    opacity: 0.7;
+                }
+                .leaf:nth-child(1) { left: 10%; animation-delay: -2s; }
+                .leaf:nth-child(2) { left: 25%; animation-delay: -4s; }
+                .leaf:nth-child(3) { left: 40%; animation-delay: -6s; }
+                .leaf:nth-child(4) { left: 55%; animation-delay: -1s; }
+                .leaf:nth-child(5) { left: 70%; animation-delay: -3s; }
+                .leaf:nth-child(6) { left: 85%; animation-delay: -5s; }
+                .leaf:nth-child(7) { left: 30%; animation-delay: -2.5s; }
+                .leaf:nth-child(8) { left: 60%; animation-delay: -4.5s; }
+                
+                @keyframes falling {
+                    0% {
+                        transform: translate(0, -100%) rotate(0deg);
+                        opacity: 0.7;
+                    }
+                    100% {
+                        transform: translate(20px, 100vh) rotate(360deg);
+                        opacity: 0;
+                    }
+                }
+            </style>
+        </h1>
+        <p class="lead" style="font-weight: 500;color: #5C4033;">"Agri-Family আপনাকে এই ফলমূল ও শাকসবজির রোগ সনাক্ত করতে সাহায্য করবে"
+
+</p>
+    </div>
+</div>
+
+<!-- Separate div for the video button -->
+<div style="margin-top: 0px;margin-bottom: 20px;  text-align: center;">
+    <!-- Button to play demo video -->
+    <button class="bttn-pill bttn-sm" onclick="openDemoVideo()" style="background-color: #ADD8E6; border: 4px solid #4682B4; padding: 10px 20px; font-size: 14px;">
+        <b style="color: #2F4F4F;">🎥 "ডেমো ভিডিও দেখুন" 📹</b>
+    </button>
+</div>
+
+<!-- Modal for demo video -->
+<div id="videoModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); z-index: 1000; align-items: center; justify-content: center;">
+    <div style="position: relative; background: #fff; padding: 10px; border-radius: 10px; width: 90%; max-width: 600px;">
+        <video id="demoVideo" controls autoplay style="width: 100%; border-radius: 10px;">
+            <source src="/static/demo.mp4" type="video/mp4">
+            আপনার ব্রাউজার এই ভিডিওটি সমর্থন করে না।
+        </video>
+        <button onclick="closeDemoVideo()" style="position: absolute; top: 10px; right: 10px; background: #ff4d4d; color: #fff; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer;">✖</button>
+    </div>
+</div>
+
+<script>
+    // Open the video modal
+    function openDemoVideo() {
+        document.getElementById("videoModal").style.display = "flex";
+    }
+
+    // Close the video modal
+    function closeDemoVideo() {
+        const modal = document.getElementById("videoModal");
+        const video = document.getElementById("demoVideo");
+        modal.style.display = "none";
+        video.pause(); // Pause the video when the modal is closed
+    }
+</script>
+
+<center class="laptop">
+    <a href="/index">
+    <button class="bttn-pill bttn-lg" onclick="playSparkles()" style="background-color: #DEB887; border: 2px solid #8B4513; position: relative; overflow: hidden;">
+        <b style="color: #5C4033;">🔍 "গাছের রোগ পরীক্ষা করুন" 🌿</b>
+        <div class="sparkles"></div>
+    </button>
+
+    <style>
+        .sparkles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        .sparkle {
+            position: absolute;
+            background: white;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            animation: sparkle-animation 0.8s linear forwards;
+        }
+        @keyframes sparkle-animation {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--tx), var(--ty)) scale(0);
+                opacity: 0;
+            }
+        }
+    </style>
+    <script>
+        function playSparkles() {
+            const btn = event.currentTarget;
+            const sparklesContainer = btn.querySelector('.sparkles');
+
+            // Create multiple sparkles
+            for(let i = 0; i < 30; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+
+                // Random position around the button
+                const angle = Math.random() * Math.PI * 2;
+                const distance = 50 + Math.random() * 50;
+                const tx = Math.cos(angle) * distance;
+                const ty = Math.sin(angle) * distance;
+
+                sparkle.style.setProperty('--tx', `${tx}px`);
+                sparkle.style.setProperty('--ty', `${ty}px`);
+
+                // Random starting position
+                sparkle.style.left = `${Math.random() * 100}%`;
+                sparkle.style.top = `${Math.random() * 100}%`;
+
+                sparklesContainer.appendChild(sparkle);
+
+                // Remove sparkle after animation
+                setTimeout(() => sparkle.remove(), 800);
+            }
+        }
+    </script>
+</a>
+</center>
+<div class="container">
+
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 laptop" style="margin-top: 1in;">
+      <h1 class="card-title text-brown font-weight-bold">"এই ফলমূল ও শাকসবজির রোগ নির্ণয় করতে পারবেন"</h1>
+    <!-- Potato Card -->
+    <div class="col mb-4">
+      <div class="card shadow-sm border-0 rounded-lg hover-effect">
+        <img src="https://m.economictimes.com/thumb/height-450,width-600,imgsize-111140,msid-72862126/potato-getty.jpg" class="card-img-top" alt="Potato" width="250" height="250">
+        <div class="card-body text-center">
+          <h5 class="card-title text-brown font-weight-bold">আলু</h5>
+        </div>
+      </div>
+    </div>
+
+    <!-- Corn Card -->
+    <div class="col mb-4">
+      <div class="card shadow-sm border-0 rounded-lg hover-effect mx-auto" style="width: 18rem;">
+        <img src="https://img.freepik.com/premium-photo/corn-high-quality-4k-ultra-hd-hdr_670382-129533.jpg" class="card-img-top" alt="ভুট্টা" width="250" height="250">
+        <div class="card-body text-center">
+          <h5 class="card-title text-brown font-weight-bold">ভুট্টা</h5>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tomato Card -->
+    <div class="col mb-4">
+      <div class="card shadow-sm border-0 rounded-lg hover-effect mx-auto" style="width: 18rem;">
+        <img src="https://images-prod.healthline.com/hlcmsresource/images/AN_images/tomatoes-1296x728-feature.jpg" class="card-img-top" alt="টমেটো" width="250" height="250">
+        <div class="card-body text-center">
+          <h5 class="card-title text-brown font-weight-bold">টমেটো</h5>
+        </div>
+      </div>
+    </div>
+
+    <!-- Capsicum Card -->
+    <div class="col mb-4">
+      <div class="card shadow-sm border-0 rounded-lg hover-effect">
+        <img src="https://cdn.pixabay.com/photo/2014/08/18/23/11/bell-peppers-421087_640.jpg" class="card-img-top" alt="Capsicum" width="250" height="250">
+        <div class="card-body text-center">
+          <h5 class="card-title text-brown font-weight-bold">ক্যাপসিকাম</h5>
+        </div>
+      </div>
+    </div>
+
+    <!-- Apple Card -->
+    <div class="col mb-4">
+      <div class="card shadow-sm border-0 rounded-lg hover-effect">
+        <img src="https://post.healthline.com/wp-content/uploads/2020/09/Do_Apples_Affect_Diabetes_and_Blood_Sugar_Levels-732x549-thumbnail-1-732x549.jpg" class="card-img-top" alt="Apple" width="250" height="250">
+        <div class="card-body text-center">
+          <h5 class="card-title text-brown font-weight-bold">আপেল</h5>
+        </div>
+      </div>
+    </div>
+
+    <!-- Orange Card -->
+    <div class="col mb-4">
+      <div class="card shadow-sm border-0 rounded-lg hover-effect">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c4/Orange-Fruit-Pieces.jpg" class="card-img-top" alt="Orange" width="250" height="250">
+        <div class="card-body text-center">
+          <h5 class="card-title text-brown font-weight-bold">কমলা</h5>
+        </div>
+      </div>
+    </div>
+
+    <!-- Grape Card -->
+    <div class="col mb-4">
+      <div class="card shadow-sm border-0 rounded-lg hover-effect">
+        <img src="https://i.ndtvimg.com/i/2015-09/grapes_625x350_61443376353.jpg" class="card-img-top" alt="Grape" width="250" height="250">
+        <div class="card-body text-center">
+          <h5 class="card-title text-brown font-weight-bold">আঙুর</h5>
+        </div>
+      </div>
+    </div>
+
+    <!-- Strawberry Card -->
+    <div class="col mb-4">
+      <div class="card shadow-sm border-0 rounded-lg hover-effect mx-auto" style="width: 18rem;">
+        <img src="https://images.indianexpress.com/2020/02/strawberry-1200.jpg" class="card-img-top" alt="Strawberry" width="250" height="250">
+        <div class="card-body text-center">
+          <h5 class="card-title text-brown font-weight-bold">স্ট্রবেরি</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Add the hover effect CSS -->
+<style>
+  .hover-effect:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+  }
+</style>
+
+
+
+</center>
+
+{% endblock body %}

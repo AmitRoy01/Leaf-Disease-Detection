@@ -1,0 +1,339 @@
+{% extends 'base.html' %}
+{% block pagetitle %}
+ Contact Us
+{% endblock pagetitle %}
+
+{% block body %}
+<style>
+    .falling-leaf {
+        position: fixed;
+        z-index: 999;
+        pointer-events: none;
+        animation: falling 10s linear infinite;
+    }
+
+    @keyframes falling {
+        0% {
+            transform: translateY(-10%) rotate(0deg);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(100vh) rotate(360deg);
+            opacity: 0;
+        }
+    }
+
+    .grow {
+        animation: grow 2s ease-in-out infinite;
+    }
+
+    @keyframes grow {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+    }
+
+    .contact-card {
+        background: linear-gradient(135deg, #a8e6cf 0%, #dcedc1 100%);
+        transition: all 0.3s ease;
+        border: 2px solid #3d8b40;
+    }
+
+    .contact-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+
+    .social-icon {
+        transition: transform 0.3s ease;
+    }
+
+    .social-icon:hover {
+        transform: scale(1.2);
+    }
+
+    .farm-bg {
+        background: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+        background-size: cover;
+        background-attachment: fixed;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        opacity: 0.2;
+    }
+
+    .video-container {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+        height: 0;
+        overflow: hidden;
+        margin: 20px 0;
+    }
+
+    .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 15px;
+        border: 3px solid #2e7d32;
+    }
+
+    .contact-links {
+        margin-top: 30px;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 15px;
+        border: 2px solid #2e7d32;
+    }
+
+    .contact-link {
+        display: inline-flex;
+        align-items: center;
+        margin: 10px 20px;
+        padding: 10px 20px;
+        color: #2e7d32;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .contact-link:hover {
+        transform: translateY(-3px);
+        color: #1b5e20;
+    }
+</style>
+
+<div class="farm-bg"></div>
+
+<script>
+    function createLeaf() {
+        const leaf = document.createElement('img');
+        leaf.src = 'https://www.freepnglogos.com/uploads/leaf-png/leaf-png-transparent-image-pngpix-1.png';
+        leaf.classList.add('falling-leaf');
+        leaf.style.left = Math.random() * 100 + 'vw';
+        leaf.style.width = Math.random() * 20 + 20 + 'px';
+        document.body.appendChild(leaf);
+        
+        setTimeout(() => {
+            leaf.remove();
+        }, 10000);
+    }
+
+    setInterval(createLeaf, 2000);
+</script>
+
+<div class="row mb-5 text-center text-white laptop">
+    <div class="col-lg-10 mx-auto">
+        <h1 class="display-4 grow" style="padding-top: 2%;font-weight: 400;color: #2e7d32;text-shadow: 2px 2px 4px rgba(0,0,0,0.2);">
+            <b>🌾চলুন, পরিচিত হই! 😊🌿</b>
+        </h1>
+        <p class="lead" style="font-weight: 500;color: #1b5e20;">
+            "Growing Together, Cultivating Solutions! 🌱 Reach out to us – we're here to help your garden flourish! 🌺"
+        </p>
+    </div>
+</div>
+
+<div class="row p-3">
+    <div class="col">
+        <div class="contact-card p-5 shadow rounded-lg" style="height: 95%;">
+            <center>
+                <img src="{{ url_for('static', filename='pp.jpg') }}" alt="Amit_Roy" class="rounded-circle mb-4" style="width: 200px; height: 200px; object-fit: cover; border: 3px solid #2e7d32;">
+
+                <h3 class="grow" style="color: #2e7d32;">অমিত কুমার রায়</h3>
+                <p class="lead" style="font-weight: 350;color: #1b5e20;">
+                হে, কী অবস্থা? "হ্যালো, আমার নাম অমিত রায়। আমি মাগুরা থেকে এবং বর্তমানে ঢাকা বিশ্ববিদ্যালয়ে সফটওয়্যার ইঞ্জিনিয়ারিং পড়াশোনা করছি।
+                আমি নতুন কিছু শেখা, প্রকল্প তৈরি করা এবং প্রযুক্তির সঙ্গে কাজ করতে ভালোবাসি।
+            আমি আমার বন্ধুদের এবং পরিবারের সঙ্গে সময় কাটাতেও ভালোবাসি। ভবিষ্যতে, আমি একজন দক্ষ ডেভেলপার হতে চাই
+                     এবং আমার কাজের মাধ্যমে ইতিবাচক প্রভাব ফেলতে চাই।"! 🌱✨
+            </p>
+
+
+<!--                <div class="video-container">-->
+<!--                    <iframe width="380" height="270" src="https://www.youtube.com/embed/Pa0X3haOWMI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+<!--                </div>-->
+
+                <div class="contact-links mt-4">
+                    <h4 style="color: #2e7d32; margin-bottom: 30px; font-weight: 600;" class="animate__animated animate__fadeIn">
+                        🌿 Let's Connect and Grow Together! 🌱
+                    </h4>
+                    <div class="d-flex justify-content-center gap-4">
+                        <a href="https://github.com/AmitRoy01" target="_blank"
+                           class="social-link animate__animated animate__fadeInUp"
+                           style="background: linear-gradient(145deg, #2e7d32, #1b5e20); 
+                                  padding: 15px 25px;
+                                  border-radius: 50px;
+                                  color: white;
+                                  text-decoration: none;
+                                  transition: all 0.3s ease;
+                                  box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                            <i class="fab fa-github fa-2x me-2 animate__animated animate__pulse animate__infinite"></i>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="mailto:bsse1314@iit.du.ac.bd"
+                           class="social-link animate__animated animate__fadeInUp animate__delay-1s"
+                           style="background: linear-gradient(145deg, #2e7d32, #1b5e20);
+                                  padding: 15px 25px;
+                                  border-radius: 50px;
+                                  color: white;
+                                  text-decoration: none;
+                                  transition: all 0.3s ease;
+                                  box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                            <i class="fas fa-envelope fa-2x me-2 animate__animated animate__pulse animate__infinite"></i>
+                            <span>Email</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/amit-kumar-roy-a78b05340/" target="_blank"
+                           class="social-link animate__animated animate__fadeInUp animate__delay-2s"
+                           style="background: linear-gradient(145deg, #2e7d32, #1b5e20);
+                                  padding: 15px 25px;
+                                  border-radius: 50px;
+                                  color: white;
+                                  text-decoration: none;
+                                  transition: all 0.3s ease;
+                                  box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                            <i class="fab fa-linkedin fa-2x me-2 animate__animated animate__pulse animate__infinite"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                    </div>
+                </div>
+            </center>
+        </div>
+    </div>
+</div>
+<div class="row p-3">
+    <div class="col">
+        <div class="contact-card p-5 shadow rounded-lg" style="height: 95%;">
+            <center>
+                <img src="{{ url_for('static', filename='nasir.jpg') }}" alt="Nasir" class="rounded-circle mb-4" style="width: 200px; height: 200px; object-fit: cover; border: 3px solid #2e7d32;">
+
+                <h3 class="grow" style="color: #2e7d32;">মো. নাসির উদ্দিন</h3>
+                    <p class="lead" style="font-weight: 350;color: #1b5e20;">
+                        হে, কী অবস্থা? "আমি নাসির উদ্দিন, নেত্রকোনা থেকে। বর্তমানে ঢাকা বিশ্ববিদ্যালয়ে সফটওয়্যার ইঞ্জিনিয়ারিং পড়ছি।
+                        আমি প্রযুক্তির নতুন দিক শিখতে, চ্যালেঞ্জিং প্রকল্প তৈরি করতে এবং টেকনোলজি ব্যবহার করে সমস্যার সমাধান করতে আগ্রহী।
+                        পরিবার এবং বন্ধুদের সঙ্গে সময় কাটানোও আমার প্রিয়। ভবিষ্যতে, আমি একজন দক্ষ সফটওয়্যার ডেভেলপার হতে চাই
+                        এবং প্রযুক্তির মাধ্যমে সমাজের কল্যাণে অবদান রাখতে চাই।"! 🌱✨
+                    </p>
+
+
+
+<!--                <div class="video-container">-->
+<!--                    <iframe width="380" height="270" src="https://www.youtube.com/embed/Pa0X3haOWMI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+<!--                </div>-->
+
+                <div class="contact-links mt-4">
+                    <h4 style="color: #2e7d32; margin-bottom: 30px; font-weight: 600;" class="animate__animated animate__fadeIn">
+                        🌿 Let's Connect and Grow Together! 🌱
+                    </h4>
+                    <div class="d-flex justify-content-center gap-4">
+                        <a href="https://github.com/Nasir-1310" target="_blank"
+                           class="social-link animate__animated animate__fadeInUp"
+                           style="background: linear-gradient(145deg, #2e7d32, #1b5e20);
+                                  padding: 15px 25px;
+                                  border-radius: 50px;
+                                  color: white;
+                                  text-decoration: none;
+                                  transition: all 0.3s ease;
+                                  box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                            <i class="fab fa-github fa-2x me-2 animate__animated animate__pulse animate__infinite"></i>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="mailto:bsse1310@iit.du.ac.bd"
+                           class="social-link animate__animated animate__fadeInUp animate__delay-1s"
+                           style="background: linear-gradient(145deg, #2e7d32, #1b5e20);
+                                  padding: 15px 25px;
+                                  border-radius: 50px;
+                                  color: white;
+                                  text-decoration: none;
+                                  transition: all 0.3s ease;
+                                  box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                            <i class="fas fa-envelope fa-2x me-2 animate__animated animate__pulse animate__infinite"></i>
+                            <span>Email</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/nasir-uddin-2a6498269/" target="_blank"
+                           class="social-link animate__animated animate__fadeInUp animate__delay-2s"
+                           style="background: linear-gradient(145deg, #2e7d32, #1b5e20);
+                                  padding: 15px 25px;
+                                  border-radius: 50px;
+                                  color: white;
+                                  text-decoration: none;
+                                  transition: all 0.3s ease;
+                                  box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                            <i class="fab fa-linkedin fa-2x me-2 animate__animated animate__pulse animate__infinite"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                    </div>
+                </div>
+            </center>
+        </div>
+    </div>
+</div>
+<div class="row p-3">
+    <div class="col">
+        <div class="contact-card p-5 shadow rounded-lg" style="height: 95%;">
+            <center>
+                <img src="{{ url_for('static', filename='soumitra.jpg') }}" alt="soumitra" class="rounded-circle mb-4" style="width: 200px; height: 200px; object-fit: cover; border: 3px solid #2e7d32;">
+
+                <h3 class="grow" style="color: #2e7d32;">সৌমিত্র পল</h3>
+                    <p class="lead" style="font-weight: 350;color: #1b5e20;">
+                        হে, কী অবস্থা? "আমি সৌমিত্র পল, চট্টগ্রাম থেকে। বর্তমানে ঢাকা বিশ্ববিদ্যালয়ে সফটওয়্যার ইঞ্জিনিয়ারিংয়ে অধ্যয়নরত।
+                        আমি প্রযুক্তি এবং সফটওয়্যার ডেভেলপমেন্টে নতুন নতুন ধারণা নিয়ে কাজ করতে পছন্দ করি।
+                        নতুন চ্যালেঞ্জ গ্রহণ এবং প্রযুক্তি ব্যবহার করে সমস্যার সমাধান করা আমার শখ। পাশাপাশি, পরিবার এবং বন্ধুদের সঙ্গে সময় কাটানোও আমার প্রিয়।
+                        ভবিষ্যতে, আমি একজন দক্ষ ডেভেলপার হিসেবে কাজ করে সমাজে গুরুত্বপূর্ণ অবদান রাখতে চাই।"! 🌱✨
+                    </p>
+
+
+<!--                <div class="video-container">-->
+<!--                    <iframe width="380" height="270" src="https://www.youtube.com/embed/Pa0X3haOWMI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+<!--                </div>-->
+
+                <div class="contact-links mt-4">
+                    <h4 style="color: #2e7d32; margin-bottom: 30px; font-weight: 600;" class="animate__animated animate__fadeIn">
+                        🌿 Let's Connect and Grow Together! 🌱
+                    </h4>
+                    <div class="d-flex justify-content-center gap-4">
+                        <a href="https://github.com/SOUMITRAPAUL" target="_blank"
+                           class="social-link animate__animated animate__fadeInUp"
+                           style="background: linear-gradient(145deg, #2e7d32, #1b5e20);
+                                  padding: 15px 25px;
+                                  border-radius: 50px;
+                                  color: white;
+                                  text-decoration: none;
+                                  transition: all 0.3s ease;
+                                  box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                            <i class="fab fa-github fa-2x me-2 animate__animated animate__pulse animate__infinite"></i>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="mailto:bsse1317@iit.du.ac.bd"
+                           class="social-link animate__animated animate__fadeInUp animate__delay-1s"
+                           style="background: linear-gradient(145deg, #2e7d32, #1b5e20);
+                                  padding: 15px 25px;
+                                  border-radius: 50px;
+                                  color: white;
+                                  text-decoration: none;
+                                  transition: all 0.3s ease;
+                                  box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                            <i class="fas fa-envelope fa-2x me-2 animate__animated animate__pulse animate__infinite"></i>
+                            <span>Email</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/soumitra-paul-6a4300224/" target="_blank"
+                           class="social-link animate__animated animate__fadeInUp animate__delay-2s"
+                           style="background: linear-gradient(145deg, #2e7d32, #1b5e20);
+                                  padding: 15px 25px;
+                                  border-radius: 50px;
+                                  color: white;
+                                  text-decoration: none;
+                                  transition: all 0.3s ease;
+                                  box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                            <i class="fab fa-linkedin fa-2x me-2 animate__animated animate__pulse animate__infinite"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                    </div>
+                </div>
+            </center>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

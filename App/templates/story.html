@@ -1,0 +1,234 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <style>
+        /* Basic Styling */
+        .story-container {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        .title {
+            text-align: center;
+            color: #4CAF50;
+            font-size: 2.5rem;
+        }
+
+        .project-image {
+            display: block;
+            margin: 0 auto;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 8px;
+        }
+
+        .intro-text, .description, .goal-text {
+            font-size: 1.2rem;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .features-list, .benefits-list {
+            font-size: 1.1rem;
+            list-style-type: square;
+            margin-left: 20px;
+        }
+
+        .features-list li, .benefits-list li {
+            margin-bottom: 10px;
+        }
+
+        h2, h3 {
+            color: #2e8b57;
+        }
+
+        strong {
+            color: #007B33;
+        }
+
+        /* Styling for the premium button */
+        .premium-btn {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+            cursor: pointer;
+        }
+
+        .premium-btn:hover {
+            background-color: #45a049;
+            transform: translateY(-3px);
+        }
+
+        .premium-btn:active {
+            background-color: #3e8e41;
+            transform: translateY(0);
+        }
+
+        /* Styling for the modal (presentation slide) */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 900px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* PDF styling */
+        .pdf-container {
+            width: 100%;
+            height: 600px;
+            overflow: auto;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+
+    <div class="story-container">
+      <h1 class="title"><b>প্রজেক্ট রিপোর্ট: "Agri_Family" 🌱🌾</b></h1>
+
+            <style>
+                .title {
+                    font-family: 'Roboto', sans-serif; /* Clean and modern font */
+                    font-size: 3rem;
+                    font-weight: bold;
+                    color: #2e8b57; /* Elegant dark green color */
+                    text-align: center;
+                    letter-spacing: 2px; /* Adding some spacing for a clean, professional look */
+                    transition: all 0.3s ease; /* Smooth transition for hover effect */
+                    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+                }
+
+                .title:hover {
+                    color: #fff; /* Changes color to white on hover */
+                    background-color: #2e8b57; /* Background color on hover */
+                    padding: 10px; /* Adds padding on hover */
+                    border-radius: 5px; /* Smooth corners */
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adds a nice shadow on hover */
+                    transform: scale(1.05); /* Slightly enlarges the text on hover */
+                }
+            </style>
+
+
+         <h3><a href="#" id="openModal" class="premium-btn">Highlights of Project</a></h3>
+
+        <img src="{{ url_for('static', filename='team pic.jpg') }}" alt="Agri_Family Logo" class="project-image">
+
+        <p class="intro-text">বর্তমানে বাংলাদেশের কৃষকদের সবচেয়ে বড় সমস্যা হলো ফসলের গাছের রোগ সঠিকভাবে চিহ্নিত করা এবং তাতে দ্রুত ব্যবস্থা নেওয়া। অনেক সময় কৃষকরা সময়মত রোগ শনাক্ত করতে পারেন না, যার ফলে ফসল নষ্ট হয় এবং তারা আর্থিক ক্ষতির মুখে পড়েন। এই সমস্যা সমাধান করতে, আমরা তিনজন – আমি, অমিত রায় এবং নাসির উদ্দিন – তৈরি করছি একটি এআই-ভিত্তিক ওয়েব অ্যাপ "Agri_Family"। 🤝💻</p>
+
+        <h2>"Agri_Family" কী?</h2>
+        <p class="description">"Agri_Family" হলো একটি কৃষকবান্ধব ওয়েব অ্যাপ, যা কৃষকদের গাছ বা পাতার ছবি আপলোড করে সেগুলোর রোগ শনাক্ত করতে সাহায্য করবে। আমাদের তৈরি কৃত্রিম বুদ্ধিমত্তা (AI) মডেল ছবিগুলো বিশ্লেষণ করে রোগের নাম জানাবে এবং কীভাবে সেই রোগের প্রতিকার করতে হবে তাও জানাবে। 🧑‍🌾📸</p>
+
+        <h3>প্রজেক্টের বৈশিষ্ট্যসমূহ:</h3>
+        <ul class="features-list">
+            <li><strong>রোগ শনাক্তকরণ</strong> 🔍
+                <ul>
+                    <li>কৃষকরা সহজে তাদের শস্য বা ফলের গাছের ছবি আপলোড করতে পারবেন।</li>
+                    <li>আমাদের AI মডেল স্বয়ংক্রিয়ভাবে রোগ শনাক্ত করবে এবং সঠিক রিপোর্ট প্রদান করবে।</li>
+                </ul>
+            </li>
+            <li><strong>রোগের প্রতিকার</strong> 💊
+                <ul>
+                    <li>শনাক্তকৃত রোগের উপর ভিত্তি করে সম্ভাব্য চিকিৎসা ও পরিচর্যার পরামর্শ দেওয়া হবে।</li>
+                    <li>সহজে অনুসরণযোগ্য প্রতিকার পদ্ধতি এবং কৃষি বিশেষজ্ঞদের পরামর্শ থাকবে।</li>
+                </ul>
+            </li>
+            <li><strong>ঔষধ সুপারিশ এবং লিঙ্ক</strong> 🌾🛒
+                <ul>
+                    <li>নির্দিষ্ট রোগের জন্য প্রয়োজনীয় কৃষি ঔষধের সুপারিশ করা হবে।</li>
+                    <li>ব্যবহারকারী সরাসরি লিঙ্কে ক্লিক করে পছন্দের পণ্য অনলাইনে কিনতে পারবেন।</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2>"Agri_Family" কীভাবে কৃষকদের সহায়তা করবে?</h2>
+        <ul class="benefits-list">
+            <li><strong>সময় ও খরচ সাশ্রয়</strong> ⏳💸: কৃষকদের আর স্থানীয় কৃষি অফিসে যেতে হবে না; ঘরে বসেই সমস্যার সমাধান পাবেন।</li>
+            <li><strong>ফসলের উৎপাদন বৃদ্ধি</strong> 🌾📈: রোগ দ্রুত শনাক্ত ও প্রতিকার করায় ফসলের ক্ষতি কমবে এবং উৎপাদন বাড়বে।</li>
+            <li><strong>সহজ ব্যবহার</strong> 📱💻: সাধারণ কৃষকরা মোবাইল বা কম্পিউটার থেকে সহজেই অ্যাপটি ব্যবহার করতে পারবেন।</li>
+            <li><strong>বাজার সংযোগ</strong> 🛒💚: ঔষধ ও কৃষিপণ্য কেনার সুবিধা থাকায় দ্রুত প্রয়োজনীয় সামগ্রী সংগ্রহ করতে পারবেন।</li>
+        </ul>
+
+        <p class="goal-text">আমাদের লক্ষ্য হলো বাংলাদেশের কৃষকদের জন্য একটি আধুনিক ও কার্যকর ডিজিটাল সমাধান তৈরি করা, যা তাদের কৃষিকাজ সহজতর করবে এবং তাদের আর্থিক সমৃদ্ধি নিশ্চিত করবে। 💪🌍</p>
+
+        <!-- Link to open the PDF modal with a premium button -->
+
+
+        <!-- Modal for PDF -->
+        <div id="presentationModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <!-- Embed PDF -->
+                <div class="pdf-container">
+                    <iframe src="{{ url_for('static', filename='project.pdf') }}" frameborder="0"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("presentationModal");
+
+        // Get the link that opens the modal
+        var btn = document.getElementById("openModal");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on the link, open the modal
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+{% endblock %}
