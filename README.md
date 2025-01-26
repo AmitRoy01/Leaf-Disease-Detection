@@ -75,16 +75,16 @@ Follow these steps to set up the project on your local machine:
 ## 📸 **Application Previews**:
 
 1. **Homepage**  
-   ![Homepage](https://github.com/AmitRoy01/Leaf-Disease-Detection/blob/main/demo_images/1..PNG)
+   ![Homepage](https://github.com/AmitRoy01/Leaf-Disease-Detection/blob/master/demo_images/1..PNG)
 
 2. **Image Upload Interface**  
-   ![Image Upload Interface](https://github.com/AmitRoy01/Leaf-Disease-Detection/blob/main/demo_images/2..PNG)
+   ![Image Upload Interface](https://github.com/AmitRoy01/Leaf-Disease-Detection/blob/master/demo_images/2..PNG)
 
 3. **Analysis Results**  
-   ![Analysis Results](https://github.com/AmitRoy01/Leaf-Disease-Detection/blob/main/demo_images/2..PNG)
+   ![Analysis Results](https://github.com/AmitRoy01/Leaf-Disease-Detection/blob/master/demo_images/3..PNG)
 
 4. **Connect with Us**  
-   ![Connect with Us](https://github.com/AmitRoy01/Leaf-Disease-Detection/blob/main/demo_images/2..PNG)
+   ![Connect with Us](https://github.com/AmitRoy01/Leaf-Disease-Detection/blob/master/demo_images/4..PNG)
 
 ---
 
